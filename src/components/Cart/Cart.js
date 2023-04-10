@@ -33,7 +33,6 @@ const Cart = (props) => {
         body: JSON.stringify({ user: data, orderedItems: cartCtx.items }),
       }
     );
-    console.log(data);
   };
 
   const cartItems = (
