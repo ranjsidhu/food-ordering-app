@@ -42,6 +42,7 @@ const Checkout = (props) => {
     if (!formIsValid) {
       return;
     }
+    props.onSubmit({ name, street, postalCode, city });
   };
 
   const nameClasses = `${classes.control} ${
@@ -69,17 +70,17 @@ const Checkout = (props) => {
         <input ref={streetInputRef} type="text" id="street" />
         {!formInputsValidity.street && <p>Please enter a valid street!</p>}
       </div>
+      <div className={cityClasses}>
+        <label htmlFor="city">City</label>
+        <input ref={cityInputRef} type="text" id="city" />
+        {!formInputsValidity.city && <p>Please enter a valid city!</p>}
+      </div>
       <div className={postalClasses}>
         <label htmlFor="postal">Postal Code</label>
         <input type="text" id="postal" ref={postalCodeInputRef} />
         {!formInputsValidity.postalCode && (
           <p>Please enter a valid postal code (minimum 7 characters long)!</p>
         )}
-      </div>
-      <div className={cityClasses}>
-        <label htmlFor="city">City</label>
-        <input ref={cityInputRef} type="text" id="city" />
-        {!formInputsValidity.city && <p>Please enter a valid city!</p>}
       </div>
       <div className={classes.actions}>
         <button type="button" onClick={props.onCancel}>
